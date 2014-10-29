@@ -1,39 +1,43 @@
 $('document').ready(function() {
-	var $input 	= $('#input'),
-		$submit = $('#submit'),
-		$username = $('#username');
+	var url = 'http://www.reddit.com/.json?jsonp=';
 
-	$submit.on('click', function(e) {
-		e.preventDefault();
-		// find the most upvoted for a sub reddit
+	function callback(rD) {
+		var addHTML = '<div>';
 
-		var url = 'http://www.reddit.com/r/' + $input.val() +'/top.json?jsonp=';
+		$.each(rD.data.children, function(i, redditFeed) {
+			addHTML += '<div>' 
+			addHTML += '<p>'
+			addHTML += redditFeed.data.title 
+			addHTML += '</p>'
+			addHTML += '</div>'
+		});
 
-		var settings = {
-			t: 'all',
-			limit: 10
-		};
+		addHTML += '</div>';
+		$('#front').html(addHTML);
+	}
 
-		function callback(data) {
-			// obj = data.data.children
+	function callback2(rD) {
+		var addHTML = '<div>';
 
-			var html = '<div>';
+		$.each(rD.data.children, function(i, redditFeed) {
+			function checkThumbnail() {
+				if (redditFeed.data.thumbnail == "") {
+					addHTML += '<img src="assets/img/empty.png">'
+					} else if (redditFeed.data.thumbnail == "self") {
+						addHTML += '<img src="assets/img/self.png">'
+					} else {
+						addHTML += '<img src="' + redditFeed.data.thumbnail + '">'
+				}
+			}
+			
+			addHTML += '<div>' 
+			checkThumbnail()
+			addHTML += '</img>'
+			addHTML += '</div>'
+		});
 
-			$.each(data.data.children, function(i, redditPost) {
-				html += '<p>';
-				html += '<a href="' + redditPost.data.url + '"target="_blank">' + redditPost.data.title  +  '</a>"';
-				html += ' <span style="color:red">'; 
-				html +=  redditPost.data.score;
-				html += '</span>';
-				html += '</p>';
-			});
-
-			html+= '</div>';
-			$username.html(html);
-		};
-
-		$.getJSON(url, settings,  callback);
-
-	});
-
+		addHTML += '</div>';
+		$('#front').html(addHTML);
+	}
+	$.getJSON(url, callback2);
 }); // end ready

@@ -1,0 +1,19 @@
+header {
+	@include outer-container;
+	#outter {
+		background-color: #cee3f8;
+	
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			
+			li {
+				display: inline;
+			}
+
+		} // end ul
+
+	} // end outter
+
+}// end header

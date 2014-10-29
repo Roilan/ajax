@@ -21,7 +21,7 @@ $('document').ready(function() {
 
 			$.each(data.data.children, function(i, redditPost) {
 				html += '<p>';
-				html += '<a href="' + redditPost.data.url + ' target="_blank">' + redditPost.data.title  +  '</a>"';
+				html += '<a href="' + redditPost.data.url + '"target="_blank">' + redditPost.data.title  +  '</a>"';
 				html += ' <span style="color:red">'; 
 				html +=  redditPost.data.score;
 				html += '</span>';

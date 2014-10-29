@@ -21,18 +21,23 @@ $('document').ready(function() {
 
 		$.each(rD.data.children, function(i, redditFeed) {
 			function checkThumbnail() {
-				if (redditFeed.data.thumbnail == "") {
+				var r = redditFeed.data.thumbnail;
+
+				if (r == "") {
 					addHTML += '<img src="assets/img/empty.png">'
-					} else if (redditFeed.data.thumbnail == "self") {
+					} else if (r == "self") {
 						addHTML += '<img src="assets/img/self.png">'
+					} else if (r == "nsfw") {
+						addHTML += '<img src="assets/img/nsfw.png">'
 					} else {
 						addHTML += '<img src="' + redditFeed.data.thumbnail + '">'
 				}
+
+				addHTML += '</img>'
 			}
-			
+
 			addHTML += '<div>' 
 			checkThumbnail()
-			addHTML += '</img>'
 			addHTML += '</div>'
 		});
 

@@ -5,21 +5,6 @@ $('document').ready(function() {
 		var addHTML = '<div>';
 
 		$.each(rD.data.children, function(i, redditFeed) {
-			addHTML += '<div>' 
-			addHTML += '<p>'
-			addHTML += redditFeed.data.title 
-			addHTML += '</p>'
-			addHTML += '</div>'
-		});
-
-		addHTML += '</div>';
-		$('#front').html(addHTML);
-	}
-
-	function callback2(rD) {
-		var addHTML = '<div>';
-
-		$.each(rD.data.children, function(i, redditFeed) {
 			function checkThumbnail() {
 				var r = redditFeed.data.thumbnail;
 
@@ -30,7 +15,7 @@ $('document').ready(function() {
 					} else if (r == "nsfw") {
 						addHTML += '<img src="assets/img/nsfw.png">'
 					} else {
-						addHTML += '<img src="' + redditFeed.data.thumbnail + '">'
+						addHTML += '<img src="' + r + '">'
 				}
 
 				addHTML += '</img>'
@@ -44,5 +29,6 @@ $('document').ready(function() {
 		addHTML += '</div>';
 		$('#front').html(addHTML);
 	}
-	$.getJSON(url, callback2);
+
+	$.getJSON(url, callback);
 }); // end ready

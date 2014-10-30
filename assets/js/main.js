@@ -30,5 +30,5 @@ $('document').ready(function() {
 		$('#front').html(addHTML);
 	}
 
-	$.getJSON(url, callback);
+	//$.getJSON(url, callback);
 }); // end ready

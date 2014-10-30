@@ -1,10 +1,8 @@
-header, 
-main {
-	text-align: left;
+body {
+	font: normal x-small verdana,arial,helvetica,sans-serif;
 }
 
 header {
-	@include outer-container;
 	#outter {
 		background-color: #cee3f8;
 	
@@ -28,9 +26,54 @@ main {
 	section {
 
 		.postarea {
-		
+			@include clearfix;
+
+			img {
+				@include padding(null 15px null null);
+				@include position(relative, null null 5px null);
+				float: left;
+
+			}
+
 			a {
+				@include margin(null null 5px null);
+				@include postStyle;
 				text-decoration: none;
+
+			}
+
+			.submitInfo {
+				@include margin(null null null 85px);
+
+				p {
+					color: $lightGrey;
+				}
+
+				.postBy,
+				.postSub {
+					color: $lightBlue;
+				}
+
+			} // end submitInfo
+
+			span {
+				color: $lightGrey;
+			}
+
+			ul {
+				@include padding(null null null 85px);
+				list-style-type: none;
+
+				li {
+					@include padding(null 10px null null);
+					display: inline;
+
+					a {
+						@include commentStyle;
+					}
+
+				}
+
 			}
 
 		}//end postarea

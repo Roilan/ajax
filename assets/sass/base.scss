@@ -1,0 +1,16 @@
+// post styles
+@mixin commentStyle() {
+	color: #888;
+	font-weight: 700;
+	font-size: 10px;
+}
+
+@mixin postStyle() {
+	color: blue;
+	font-weight: 400;
+	font-size: medium;
+}
+
+
+$lightGrey: #888;
+$lightBlue: #369;

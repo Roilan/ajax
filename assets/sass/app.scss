@@ -64,22 +64,26 @@ main {
 
 			} //end vote
 
-			img {
+			.thumbnail {
 				@include padding(null 15px null null);
 				@include position(relative, null null 5px null);
 				float: left;
-
 			}
 
-			a {
+			.titleLink {
 				@include margin(null null 5px null);
 				@include postStyle;
 				text-decoration: none;
 
 			}
+			
+			span {
+				color: $lightGrey;
+			}
+
 
 			.submitInfo {
-				@include margin(null null null 117px);
+				@include margin(-5px null null 117px);
 
 				p {
 					color: $lightGrey;
@@ -91,6 +95,7 @@ main {
 				.postSub {
 					color: $lightBlue;
 					font-size: 10px;
+					text-decoration: none;
 
 					&:hover {
 						text-decoration: underline;
@@ -100,20 +105,18 @@ main {
 
 			} // end submitInfo
 
-			span {
-				color: $lightGrey;
-			}
-
-			ul {
+			.list {
+				@include margin(-5px null null null);
 				@include padding(null null null 117px);
 				list-style-type: none;
 
-				li {
+				.listItem  {
 					@include padding(null 10px null null);
 					display: inline;
 
 					a {
 						@include commentStyle;
+						text-decoration: none;
 
 						&:hover {
 						text-decoration: underline;

@@ -1,35 +1,6 @@
 $('document').ready(function() {
 	var url = 'http://www.reddit.com/.json?jsonp=';
 
-	function callback2(rD) {
-		var addHTML = '<div>';
-
-		$.each(rD.data.children, function(i, redditFeed) {
-			function checkThumbnail() {
-				var r = redditFeed.data.thumbnail;
-
-				if (r == "") {
-					addHTML += '<img src="assets/img/empty.png">'
-					} else if (r == "self") {
-						addHTML += '<img src="assets/img/self.png">'
-					} else if (r == "nsfw") {
-						addHTML += '<img src="assets/img/nsfw.png">'
-					} else {
-						addHTML += '<img src="' + r + '">'
-				}
-
-				addHTML += '</img>'
-			}
-
-			addHTML += '<div>' 
-			checkThumbnail()
-			addHTML += '</div>'
-		});
-
-		addHTML += '</div>';
-		$('#front').html(addHTML);
-	}
-
 	function callback(rD) {
 		var postarea;
 		var r;
@@ -39,6 +10,20 @@ $('document').ready(function() {
 
 		$.each(rD.data.children, function(i, redditFeed) {
 			r = redditFeed.data;
+
+			function addThumbnail() {
+				var r = redditFeed.data.thumbnail;
+
+				if (r == "") {
+					postarea += '<img class="thumbnail" src="assets/img/empty.png" />'
+					} else if (r == "self") {
+						postarea += '<img class="thumbnail" src="assets/img/self.png" />'
+					} else if (r == "nsfw") {
+						postarea += '<img class="thumbnail" src="assets/img/nsfw.png" />'
+					} else {
+						postarea += '<img class="thumbnail" src="' + r + '" />'
+				}
+			}
 
 			// add up/down vote arrows and score
 			postarea += '<div class="vote">';
@@ -51,7 +36,8 @@ $('document').ready(function() {
 			postarea += '<div class="arrow arrow-down"></div>'
 			postarea += '</div>'; // close vote
 
-
+			// add thumbnail image
+			addThumbnail();
 		}); // end each
 
 

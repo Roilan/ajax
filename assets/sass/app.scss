@@ -68,6 +68,7 @@ main {
 				@include padding(null 15px null null);
 				@include position(relative, null null 5px null);
 				float: left;
+				width: 65px;
 			}
 
 			.titleLink {

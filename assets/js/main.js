@@ -60,6 +60,15 @@ $('document').ready(function() {
 			postarea += '</p>';
 			postarea+= '</div>';
 
+			// share, save, etc list items
+			postarea += '<ul class="list">';
+			postarea += '<li class="listItem"><a href="#">' + r.num_comments + ' comments</a></li>';
+			postarea += '<li class="listItem"><a href="#">share</a></li>';
+			postarea += '<li class="listItem"><a href="#">save</a></li>';
+			postarea += '<li class="listItem"><a href="#">hide</a></li>';
+			postarea += '<li class="listItem"><a href="#">report</a></li>';
+			postarea += '</ul>'
+
 		}); // end each
 
 

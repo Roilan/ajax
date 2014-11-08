@@ -4,12 +4,16 @@ $('document').ready(function() {
 	function callback(rD) {
 		var postarea;
 		var r;
+		var d;
 
 		// opening div for reddit post area
 		postarea = '<div class="postarea">';
 
 		$.each(rD.data.children, function(i, redditFeed) {
 			r = redditFeed.data;
+
+			// converts epoch to UTC
+			d = new Date(r.created * 1000);
 
 			function addThumbnail() {
 				var r = redditFeed.data.thumbnail;
@@ -38,6 +42,24 @@ $('document').ready(function() {
 
 			// add thumbnail image
 			addThumbnail();
+
+			// add title link
+			postarea += '<a class="titleLink" href="#">';
+			postarea += r.title;
+			postarea += '</a> ';
+			postarea += '<span>';
+			postarea += r.domain;
+			postarea += '</span>';
+
+			// add submission info
+			postarea += '<div class="submitInfo">';
+			postarea += '<p>submitted ';
+			postarea += '<a class="postTime" href="#">' + d + '</a> ago by ';
+			postarea += '<a class="postBy" href="#">' + r.author + '</a> to ';
+			postarea += '<a class="postSub" href="#">' + r.subreddit + '</a>';
+			postarea += '</p>';
+			postarea+= '</div>';
+
 		}); // end each
 
 

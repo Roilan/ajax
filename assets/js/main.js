@@ -78,4 +78,20 @@ $('document').ready(function() {
 	} // end callback
 
 	//$.getJSON(url, callback);
+
+	var source = $('#reddit-feed').html();
+	var template = Handlebars.compile(source);
+
+	var reddit = {
+		score: 10,
+		title: 'My Title',
+		domain: 'reddit dot com',
+		d: 'Today',
+		author: 'john doe',
+		subreddit: 'le sub',
+		num_comments: 5
+	};
+
+	$('body').append(template(reddit));
+
 }); // end ready

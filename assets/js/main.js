@@ -92,6 +92,7 @@ $('document').ready(function() {
 		num_comments: 5
 	};
 
-	$('body').append(template(reddit));
+	var mytemp = template(reddit);
+	$('.postarea').html(mytemp);
 
 }); // end ready

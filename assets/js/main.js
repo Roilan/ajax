@@ -15,6 +15,7 @@ $('document').ready(function() {
 			// converts epoch to UTC
 			d = new Date(r.created * 1000);
 
+			// checks if thunbnail is self or nsfw and places an image accordingly
 			function addThumbnail() {
 				var r = redditFeed.data.thumbnail;
 
@@ -76,5 +77,5 @@ $('document').ready(function() {
 		$('#ajax').html(postarea);
 	} // end callback
 
-	$.getJSON(url, callback);
+	//$.getJSON(url, callback);
 }); // end ready

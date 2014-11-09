@@ -1,7 +1,7 @@
 $('document').ready(function() {
 	var url = 'http://www.reddit.com/.json?jsonp=';
 
-	function callback(rD) {
+	function callback2(rD) {
 		var postarea;
 		var r;
 		var d;
@@ -77,22 +77,14 @@ $('document').ready(function() {
 		$('#ajax').html(postarea);
 	} // end callback
 
-	//$.getJSON(url, callback);
+	function callback(data) {
+		var source = $('#reddit-feed').html();
+		var template = Handlebars.compile(source);
+		var mytemp = template(data);
+		
+		$('.postarea').html(mytemp);
+		console.log(data);
+	}
 
-	var source = $('#reddit-feed').html();
-	var template = Handlebars.compile(source);
-
-	var reddit = {
-		score: 10,
-		title: 'My Title',
-		domain: 'reddit dot com',
-		d: 'Today',
-		author: 'john doe',
-		subreddit: 'le sub',
-		num_comments: 5
-	};
-
-	var mytemp = template(reddit);
-	$('.postarea').html(mytemp);
-
+	$.getJSON(url, callback);
 }); // end ready

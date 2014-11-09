@@ -31,7 +31,7 @@
   </header> <!-- End Header -->
 
   <main>
-    <section style="display:block">
+    <section style="display:none">
       <div class="postarea">
 
         <div class="vote">
@@ -71,7 +71,7 @@
       <div class="postarea">
       
         <script id="reddit-feed" type="text/html">
-          
+          {{#each data.children}}
           <div class="vote">
             <div class="arrow arrow-up"></div>
 
@@ -103,7 +103,7 @@
             <li class="listItem"><a href="#">hide</a></li>
             <li class="listItem"><a href="#">report</a></li>
           </ul>
-          
+          {{/each}}
         </script>
 
 

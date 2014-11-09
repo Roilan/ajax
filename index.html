@@ -76,28 +76,28 @@
             <div class="arrow arrow-up"></div>
 
             <div class="upvoteAmt">
-              <span>{{score}}</span>
+              <span>{{data.score}}</span>
             </div>
 
             <div class="arrow arrow-down"></div>
           </div>
 
-          <img class="thumbnail" src="assets/img/empty.png" alt="" />
+          <img class="thumbnail" src="{{data.thumbnail}}" alt="" />
 
-          <a class="titleLink" href="#">{{title}}</a>
-          <span>{{domain}}</span>
+          <a class="titleLink" href="#">{{data.title}}</a>
+          <span>{{data.domain}}</span>
 
           <div class="submitInfo">
             <p>submitted 
-              <a href="#" class="postTime">{{d}}</a> 
+              <a href="#" class="postTime">{{data.d}}</a> 
               ago by 
-              <a href="#" class="postBy">{{author}}</a> 
+              <a href="#" class="postBy">{{data.author}}</a> 
               to 
-              <a href="#" class="postSub">{{subreddit}}</a></p>
+              <a href="#" class="postSub">{{data.subreddit}}</a></p>
           </div>
 
           <ul class="list">
-            <li class="listItem"><a href="#">{{num_comments}}</a></li>
+            <li class="listItem"><a href="#">{{data.num_comments}}</a></li>
             <li class="listItem"><a href="#">share</a></li>
             <li class="listItem"><a href="#">save</a></li>
             <li class="listItem"><a href="#">hide</a></li>

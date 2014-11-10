@@ -16,8 +16,13 @@ $('document').ready(function() {
 	}
 
 	function callback(data) {
+		var timeCreated;
 		var d;
 		//d = new Date(data.children.data.created * 1000);
+
+		$.each(data.data.children, function(i, redditFeed) {
+			timeCreated = new Date(redditFeed.created * 1000);
+		});
 
 		var source = $('#reddit-feed').html();
 		var template = Handlebars.compile(source);

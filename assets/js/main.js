@@ -16,13 +16,26 @@ $('document').ready(function() {
 	}
 
 	function callback(data) {
-		var timeCreated;
-		var d;
-		//d = new Date(data.children.data.created * 1000);
+		var r;
 
 		$.each(data.data.children, function(i, redditFeed) {
-			//timeCreated = new Date(redditFeed.created * 1000);
-			redditFeed.data.created = new Date(redditFeed.data.created * 1000);
+			r = redditFeed;
+			r.data.created = new Date(redditFeed.data.created * 1000);
+
+			function checkThumbnail() {
+				var r = redditFeed.data.thumbnail;
+			
+				if (r == "") {
+					r = '/assets/img/empty.png';
+					} else if (r == "self") {
+						r = 'assets/img/self.png';
+					}else if (r == "nsfw") {
+						r = 'assets/img/nsfw.png';
+					}
+				}
+			}
+			
+			checkThumbnail();
 		});
 
 		var source = $('#reddit-feed').html();

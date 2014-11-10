@@ -1,20 +1,6 @@
 $('document').ready(function() {
 	var url = 'http://www.reddit.com/.json?jsonp=';
 
-	function addThumbnail() {
-		var r = redditFeed.data.thumbnail;
-	
-		if (r == "") {
-			postarea += '<img class="thumbnail" src="assets/img/empty.png" />'
-			} else if (r == "self") {
-				postarea += '<img class="thumbnail" src="assets/img/self.png" />'
-			} else if (r == "nsfw") {
-				postarea += '<img class="thumbnail" src="assets/img/nsfw.png" />'
-			} else {
-				postarea += '<img class="thumbnail" src="' + r + '" />'
-		}
-	}
-
 	function callback(data) {
 		var r;
 
@@ -23,18 +9,14 @@ $('document').ready(function() {
 			r.data.created = new Date(redditFeed.data.created * 1000);
 
 			function checkThumbnail() {
-				var r = redditFeed.data.thumbnail;
-			
-				if (r == "") {
+				r = r.data.thumbnail;
+				console.log(r);
+
+				if (r == 'self') {
 					r = '/assets/img/empty.png';
-					} else if (r == "self") {
-						r = 'assets/img/self.png';
-					}else if (r == "nsfw") {
-						r = 'assets/img/nsfw.png';
-					}
 				}
 			}
-			
+
 			checkThumbnail();
 		});
 

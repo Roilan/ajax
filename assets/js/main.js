@@ -9,11 +9,13 @@ $('document').ready(function() {
 			r.data.created = new Date(redditFeed.data.created * 1000);
 
 			function checkThumbnail() {
-				r = r.data.thumbnail;
-				console.log(r);
 
-				if (r == 'self') {
-					r = '/assets/img/empty.png';
+				if (r.data.thumbnail == '') {
+					r.data.thumbnail = '/assets/img/empty.png';
+				} else if (r.data.thumbnail == 'self') {
+					r.data.thumbnail = '/assets/img/self.png';
+				} else if (r.data.thumbnail == 'nsfw') {
+					r.data.thumbnail = '/assets/img/nsfw.png';
 				}
 			}
 
